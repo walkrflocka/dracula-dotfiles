@@ -215,10 +215,17 @@ client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
 client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 
 client.background       #F8F8F2
-
-# Media control 
+ 
 # Media player controls
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioPause exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+
+# Screenshot
+bindsym Print       exec --no-startup-id flameshot full -c
+bindsym Shift+Print exec --no-startup-id flameshot gui
+
+# fuckin uuuuuuuuhhhhh session Bock
+bindsym $mod+Control+l exec --no-startup-id i3lock -i .wallpaper.png
+bindsym $mod+Control+s exec --no-startup-id systemctl suspend
