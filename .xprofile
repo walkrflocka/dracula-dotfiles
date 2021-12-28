@@ -1,1 +1,2 @@
 ~/.fehbg &
+xrandr --output HDMI-A-0 --mode 2560x1440 --rate 143.98 &
