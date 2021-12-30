@@ -1,3 +1,4 @@
 ~/.fehbg &
 xrandr --output HDMI-A-0 --mode 2560x1440 --rate 143.98 &
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+mullvad-vpn &

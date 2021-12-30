@@ -199,6 +199,7 @@ bar {
     urgent_workspace   #FF5555 #FF5555 #F8F8F2
     binding_mode       #FF5555 #FF5555 #F8F8F2
   }
+  tray_padding 0
 }
 
 # Gaps!
