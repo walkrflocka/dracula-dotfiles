@@ -233,3 +233,9 @@ bindsym Shift+Print exec --no-startup-id flameshot full -c
 # fuckin uuuuuuuuhhhhh session Bock
 bindsym $mod+Control+l exec --no-startup-id ~/.config/i3/lock.sh
 bindsym $mod+Control+s exec --no-startup-id systemctl suspend
+
+# Passthrough for geraldo el witcherino de riviera
+mode "passthrough" {
+    bindsym $mod+Control+Escape mode "default"
+}
+bindsym $mod+Control+Escape mode "passthrough"
