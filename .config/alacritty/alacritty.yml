@@ -181,3 +181,5 @@ colors:
     cyan: '#9aedfe'
     white: '#e6e6e6'
 theme: Dracula
+
+background_opacity: 0.6
