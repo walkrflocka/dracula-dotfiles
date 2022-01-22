@@ -1,5 +1,0 @@
-~/.fehbg &
-xrandr --output HDMI-A-0 --mode 2560x1440 --rate 143.98 &
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-mullvad-vpn &
-picom -b --unredir-if-possible --experimental-backends &

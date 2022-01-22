@@ -24,16 +24,20 @@ font pango:Anonymice Nerd Font 10
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- ~/.config/i3/lock.sh
-
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
+
+
+# Start notification daemon for notifications
+exec mako
+
+# Start mullvad
+exec mullvad-vpn
+
+# Start gnome polkit
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -50,7 +54,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
+bindsym $mod+Return exec --no-startup-id alacritty 
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -206,7 +210,7 @@ bar {
 }
 
 # Gaps!
-for_window [class=".*"] border pixel 2
+default_border pixel 2
 gaps inner 15
 gaps outer 5
 
@@ -231,11 +235,28 @@ bindsym Print       exec --no-startup-id flameshot gui
 bindsym Shift+Print exec --no-startup-id flameshot full -c
 
 # fuckin uuuuuuuuhhhhh session Bock
-bindsym $mod+Control+l exec --no-startup-id ~/.config/i3/lock.sh
-bindsym $mod+Control+s exec --no-startup-id systemctl suspend
+bindsym $mod+Control+l exec --no-startup-id ~/.config/swaylock/swaylock.sh
+bindsym $mod+Control+s exec --no-startup-id "~/.config/swaylock/swaylock.sh && sleep 1 && systemctl suspend"
 
 # Passthrough for geraldo el witcherino de riviera
 mode "passthrough" {
     bindsym $mod+Control+Escape mode "default"
 }
 bindsym $mod+Control+Escape mode "passthrough"
+
+# Set background
+output '*' bg ~/.wallpaper.png fill
+
+# Configure mouse accel for G303
+input type:pointer {
+	accel_profile "flat"
+}
+
+# Idle handling
+exec swayidle -w \
+    timeout 300 '~/.config/swaylock/swaylock.sh' \
+    timeout 600 'swaymsg "output * dpms off"' \
+        resume 'swaymsg "output * dpms on"' \
+    before-sleep '~/.config/swaylock/swaylock.sh'
+
+

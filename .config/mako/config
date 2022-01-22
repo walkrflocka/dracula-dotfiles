@@ -1,0 +1,24 @@
+# General settings
+width=400
+
+# Set timeout
+default-timeout=5000
+ignore-timeout=1
+
+# Customize colors
+background-color=#282a3699
+progress-color=source #44475a99
+
+# Set font
+font=Anonymice Nerd Font 11
+
+# Urgency handling
+[urgency=low]
+border-color=#6272a4
+
+[urgency=normal]
+border-color=#50fa7b
+
+[urgency=high]
+border-color=#ffb86c
+default-timeout=0
