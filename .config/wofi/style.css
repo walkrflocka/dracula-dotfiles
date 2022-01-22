@@ -1,0 +1,43 @@
+#window {
+	margin: 5px;
+	border: 2px solid #6272a4;
+	background-color: #282a36;
+	font-family: Anonymice Nerd Font;
+	color: #f8f8f2;
+}
+
+#input {
+	margin: 5px;
+	background-color: #44475a;
+	color: #f8f8f2;
+}
+
+#inner-box {
+	margin: 0px;
+	background-color: #282a36;
+}
+
+#outer-box {
+	margin: 5px;
+	background-color: #282a36;
+}
+
+#scroll {
+	margin: 5px;
+	background-color: #282a36;
+	border: none;
+}
+
+#selected {
+	background-color: #44475a;
+	border: none;
+}
+
+#entry:selected {
+	background-color: #44475a;
+	border: none;
+}
+
+#text:selected {
+	border: none;
+}
