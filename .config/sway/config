@@ -247,4 +247,11 @@ exec swayidle -w \
         resume 'swaymsg "output * dpms on"' \
     before-sleep '~/.config/swaylock/swaylock.sh'
 
+# Workaround for GTK themes
+set $gnome-schema org.gnome.desktop.interface
 
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'Dracula'
+    gsettings set $gnome-schema icon-theme 'Dracula'
+    gsettings set $gnome-schema font-name 'Anonymice Pro Nerd Font'
+}

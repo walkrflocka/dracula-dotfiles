@@ -1,0 +1,80 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: Anonymice Nerd Font;
+    font-size: 15px;
+    min-height: 25px;
+    color: #f8f8f2;
+}
+
+window#waybar {
+    background: rgba(40, 42, 54, 0.5);
+    border-bottom: 3px solid rgba(40, 42, 54, 0.5);
+    color: #f8f8f2;
+}
+
+tooltip {
+  background: rgba(40, 42, 54, 0.5);
+  border: 1px solid rgba(40, 42, 54, 0.5);
+}
+tooltip label {
+  color: #f8f8f2;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background: transparent;
+    color: #f8f8f2;
+    border-bottom: 3px solid transparent;
+}
+
+#workspaces button.focused {
+    background: #44475a;
+    border-bottom: 3px #f8f8f2;
+}
+
+#mode, 
+#clock, 
+#battery, 
+#pulseaudio,
+#idle_inhibitor,
+#custom-media,
+#tray {
+    padding: 0 10px;
+}
+
+#mode {
+    background: #44475a;
+    border-bottom: 3px #f8f8f2;
+}
+
+#clock {
+    background-color: #282a36;
+}
+
+#pulseaudio {
+    background-color: #282a36;
+}
+
+#tray {
+    background-color: #6272a4;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+
+#idle_inhibitor {
+    background-color: #282a36;
+	padding-right: 16px;
+}
+
+#idle_inhibitor.activated {
+    background-color: #ecf0f1;
+    color: #2d3436;
+}
