@@ -255,3 +255,6 @@ exec_always {
     gsettings set $gnome-schema icon-theme 'Dracula'
     gsettings set $gnome-schema font-name 'Anonymice Pro Nerd Font'
 }
+
+# Output properly handled
+output 'HDMI-A-1' mode 2560x1440@143.981Hz
