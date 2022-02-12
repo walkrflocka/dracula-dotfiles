@@ -1,43 +1,39 @@
-#window {
-	margin: 5px;
-	border: 2px solid #6272a4;
-	background-color: #282a36;
-	font-family: Anonymice Nerd Font;
-	color: #f8f8f2;
-}
-
-#input {
-	margin: 5px;
-	background-color: #44475a;
-	color: #f8f8f2;
-}
-
-#inner-box {
-	margin: 0px;
-	background-color: #282a36;
-}
-
 #outer-box {
-	margin: 5px;
-	background-color: #282a36;
+	border: 2px solid #6272a4;
+	border-radius: 4px;
 }
 
-#scroll {
-	margin: 5px;
-	background-color: #282a36;
-	border: none;
+#window {
+	background-color: #232a36;
 }
 
-#selected {
-	background-color: #44475a;
-	border: none;
-}
-
-#entry:selected {
-	background-color: #44475a;
-	border: none;
+#text {
+	font-family: "Anonymice Nerd Font";
 }
 
 #text:selected {
-	border: none;
+	color: #f8f8f2;
+	background-color: transparent;
+}
+
+#input {
+	font-family: "Anonymice Nerd Font";
+	margin: 4px;
+	border: 2px solid #6272a4;
+	border-radius: 4px;
+	background-color: #232a36;
+}
+
+#scroll {
+	margin: 2px 2px 3px 2px;
+}
+
+#entry {
+	padding: 2px 4px;
+	margin: 1px 2px;
+}
+
+#entry:selected {
+	background-color: #6272a2;
+	border-radius: 4px;
 }
