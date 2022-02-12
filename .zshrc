@@ -113,3 +113,6 @@ alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # Make sudo editor vim
 export EDITOR='vim'
+
+# Alias for mirrorlist upgrade
+alias mirrorlist-update="reflector --age 12 -c US --sort rate --save /etc/pacman.d/mirrorlist"
