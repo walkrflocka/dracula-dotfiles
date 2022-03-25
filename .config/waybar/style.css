@@ -1,80 +1,303 @@
+/* =============================================================================
+ *
+ * Waybar configuration
+ *
+ * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+ *
+ * =========================================================================== */
+
+/* -----------------------------------------------------------------------------
+ * Keyframes
+ * -------------------------------------------------------------------------- */
+
+@keyframes blink-warning {
+	70% {
+		color: @light;
+	}
+
+	to {
+		color: @light;
+		background-color: @warning;
+	}
+}
+
+@keyframes blink-critical {
+	70% {
+		color: @light;
+	}
+
+	to {
+		color: @light;
+		background-color: @critical;
+	}
+}
+
+
+/* -----------------------------------------------------------------------------
+ * Styles
+ * -------------------------------------------------------------------------- */
+
+/* COLORS */
+
+/* Nord */
+/*@define-color light #eceff4;
+@define-color dark #2e3440;
+@define-color warning #ebcb8b;
+@define-color critical #d08770;
+@define-color mode #4c566a;
+@define-color workspaces #5e81ac;
+@define-color workspacesfocused #81a1c1;
+@define-color sound #d8dee9;
+@define-color network #4c566a;
+@define-color memory #88c0d0;
+@define-color cpu #434c5e;
+@define-color temp #d8dee9;
+@define-color layout #5e81ac;
+@define-color battery #88c0d0;
+@define-color date #2e3440;
+@define-color time #eceff4;*/
+
+/* Dracula  */
+@define-color light #f8f8f2;
+@define-color dark #282a36;
+@define-color warning #ffb86c;
+@define-color critical #ff5555;
+@define-color mode #a89984;
+@define-color workspaces #282a36;
+@define-color workspacesfocused #6272a4;
+@define-color sound #c785ab;
+@define-color network #b16286;
+@define-color memory #89d69d;
+@define-color cpu #98971a;
+@define-color temp #b8bb26;
+@define-color layout #689d6a;
+@define-color battery #fabd2f;
+@define-color date #292a36;
+@define-color time #6272a4;
+
+/* Reset all styles */
 * {
-    border: none;
-    border-radius: 0;
-    font-family: Anonymice Nerd Font;
-    font-size: 15px;
-    min-height: 25px;
-    color: #f8f8f2;
+	border: none;
+	border-radius: 0;
+	min-height: 0;
+	margin: 0;
+	padding: 0;
 }
 
-window#waybar {
-    background: rgba(40, 42, 54, 0.5);
-    border-bottom: 3px solid rgba(40, 42, 54, 0.5);
-    color: #f8f8f2;
+/* The whole bar */
+#waybar {
+	background: transparent;
+	color: @light;
+	font-family: Iosevka, "Font Awesome 6 Free";
+	font-size: 10pt;
+	/*font-weight: bold;*/
 }
 
-tooltip {
-  background: rgba(40, 42, 54, 0.5);
-  border: 1px solid rgba(40, 42, 54, 0.5);
-}
-tooltip label {
-  color: #f8f8f2;
+window > box {
+    margin-top: 10px;
 }
 
+/* Each module */
+#battery,
+#clock,
+#cpu,
+#language,
+#memory,
+#mode,
+#network,
+#pulseaudio,
+#temperature,
+#custom-alsa,
+#sndio,
+#tray {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+/* Each module that should blink */
+#mode,
+#memory,
+#temperature,
+#battery {
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+/* Each critical module */
+#memory.critical,
+#cpu.critical,
+#temperature.critical,
+#battery.critical {
+	color: @critical;
+}
+
+/* Each critical that should blink */
+#mode,
+#memory.critical,
+#temperature.critical,
+#battery.critical.discharging {
+	animation-name: blink-critical;
+	animation-duration: 2s;
+}
+
+/* Each warning */
+#network.disconnected,
+#memory.warning,
+#cpu.warning,
+#temperature.warning,
+#battery.warning {
+	color: @warning;
+}
+
+/* Each warning that should blink */
+#battery.warning.discharging {
+	animation-name: blink-warning;
+	animation-duration: 3s;
+}
+
+/* And now modules themselves in their respective order */
+
+#mode { /* Shown current Sway mode (resize etc.) */
+	color: @light;
+	background: @mode;
+}
+
+/* Workspaces stuff */
 #workspaces button {
-    padding: 0 5px;
-    background: transparent;
-    color: #f8f8f2;
-    border-bottom: 3px solid transparent;
+	/*font-weight: bold;*/
+	padding-left: 4px;
+	padding-right: 4px;
+	color: @light;
+	background: @workspaces;
 }
 
 #workspaces button.focused {
-    background: #44475a;
-    border-bottom: 3px #f8f8f2;
+	background: @workspacesfocused;
 }
 
-#mode, 
-#clock, 
-#battery, 
+/*#workspaces button.urgent {
+	border-color: #c9545d;
+	color: #c9545d;
+}*/
+
+#window {
+	margin-right: 40px;
+	margin-left: 40px;
+}
+
+#custom-alsa,
 #pulseaudio,
-#idle_inhibitor,
-#custom-media,
+#sndio {
+	background: @sound;
+	color: @dark;
+}
+
+#network {
+	background: @network;
+	color: @light;
+}
+
+#memory {
+	background: @memory;
+	color: @dark;
+}
+
+#cpu {
+	background: @cpu;
+	color: @light;
+}
+
+#temperature {
+	background: @temp;
+	color: @dark;
+}
+
+#language {
+	background: @layout;
+	color: @light;
+}
+
+#battery {
+	background: @battery;
+	color: @dark;
+}
+
 #tray {
-    padding: 0 10px;
+	background: @date;
 }
 
-#mode {
-    background: #44475a;
-    border-bottom: 3px #f8f8f2;
+#clock.date {
+	background: @date;
+	color: @light;
 }
 
-#clock {
-    background-color: #282a36;
+#clock.time {
+	background: @time;
+	color: @light;
 }
 
-#pulseaudio {
-    background-color: #282a36;
+#pulseaudio.muted {
+	/* No styles */
 }
 
-#tray {
-    background-color: #6272a4;
+#custom-arrow1 {
+	font-size: 16px;
+	color: @sound;
+	background: transparent;
 }
 
-#tray > .passive {
-    -gtk-icon-effect: dim;
+#custom-arrow2 {
+	font-size: 16px;
+	color: @network;
+	background: @sound;
 }
 
-#tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
+#custom-arrow3 {
+	font-size: 16px;
+	color: @memory;
+	background: @network;
 }
 
-#idle_inhibitor {
-    background-color: #282a36;
-	padding-right: 16px;
+#custom-arrow4 {
+	font-size: 16px;
+	color: @cpu;
+	background: @memory;
 }
 
-#idle_inhibitor.activated {
-    background-color: #ecf0f1;
-    color: #2d3436;
+#custom-arrow5 {
+	font-size: 16px;
+	color: @temp;
+	background: @cpu;
 }
+
+#custom-arrow6 {
+	font-size: 16px;
+	color: @layout;
+	background: @temp;
+}
+
+#custom-arrow7 {
+	font-size: 16px;
+	color: @battery;
+	background: @layout;
+}
+
+#custom-arrow8 {
+	font-size: 16px;
+	color: @date;
+	background: @battery;
+}
+
+#custom-arrow9 {
+	font-size: 16px;
+	color: @time;
+	background: @date;
+}
+
+#custom-arrow10 {
+	font-size: 16px;
+	color: @workspaces;
+	background: transparent;
+}
+

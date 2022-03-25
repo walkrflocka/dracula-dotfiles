@@ -1,6 +1,10 @@
+* {
+    font-family: "Iosevka";
+}
+
 #outer-box {
 	border: 2px solid #6272a4;
-	border-radius: 4px;
+	/* border-radius: 4px; */
 }
 
 #window {
@@ -8,7 +12,6 @@
 }
 
 #text {
-	font-family: "Anonymice Nerd Font";
 }
 
 #text:selected {
@@ -17,10 +20,9 @@
 }
 
 #input {
-	font-family: "Anonymice Nerd Font";
 	margin: 4px;
 	border: 2px solid #6272a4;
-	border-radius: 4px;
+	/* border-radius: 4px; */
 	background-color: #232a36;
 }
 

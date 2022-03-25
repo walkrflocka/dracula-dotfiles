@@ -1,42 +1,251 @@
+// =============================================================================
+//
+// Waybar configuration (https://hg.sr.ht/~begs/dotfiles)
+//
+// Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+//
+// =============================================================================
+
 {
-	"spacing": 5,
-    "layer": "top",
-    "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["clock"],
-    "modules-right": ["idle_inhibitor", "pulseaudio", "custom/media", "tray"],
-    "sway/window": {
-        "max-length": 50
-    },
-    "battery": {
-        "format": "{capacity}% {icon}",
-        "format-icons": ["", "", "", "", ""]
-    },
-    "clock": {
-        "format-alt": "{:%a, %d. %b  %H:%M}"
-    },
-    "pulseaudio": {
-        "format-muted": "--%"
-    },
-	"idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-    }},
+	// -------------------------------------------------------------------------
+	// Global configuration
+	// -------------------------------------------------------------------------
+
+	"layer": "top",
+	"position": "top",
+	//"height": 18,
+
+	"modules-left": [
+		"sway/mode",
+		"sway/workspaces",
+		"custom/arrow10",
+		"sway/window"
+	],
+
+	//"modules-center": [
+	//	"sway/window"
+	//],
+
+	"modules-right": [
+		"custom/arrow1",
+		//"custom/alsa",
+		"pulseaudio",
+		//"sndio",
+		"custom/arrow2",
+		"network",
+		"custom/arrow3",
+		"memory",
+		"custom/arrow4",
+		"cpu",
+		"custom/arrow5",
+		"temperature",
+		"custom/arrow6",
+		"sway/language",
+		"custom/arrow7",
+		"custom/arrow8",
+		"tray",
+		"clock#date",
+		"custom/arrow9",
+		"clock#time"
+	],
+
+	// -------------------------------------------------------------------------
+	// Modules
+	// -------------------------------------------------------------------------
+
+	"battery": {
+		"interval": 1,
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format": " {capacity}%", // Icon: bolt
+		"format-discharging": "{icon} {capacity}%",
+		"format-icons": [
+			"\uf240", // Icon: battery-full
+			"\uf241", // Icon: battery-three-quarters
+			"\uf242", // Icon: battery-half
+			"\uf243", // Icon: battery-quarter
+			"\uf244"  // Icon: battery-empty
+		],
+		"tooltip": false
+	},
+
+	"clock#time": {
+		"interval": 10,
+		"format": "{:%H:%M}",
+		"tooltip": false
+	},
+
+	"clock#date": {
+		"interval": 20,
+		"format": "{:%e %b %Y}", // Icon: calendar-alt
+		//"tooltip-format": "{:%e %B %Y}"
+		"tooltip": false
+	},
+
+	"cpu": {
+		"interval": 5,
+		"tooltip": false,
+		"format": "\uf2db {usage}%", // Icon: microchip
+		"states": {
+		  "warning": 70,
+		  "critical": 90
+		}
+	},
+
+	"sway/language": {
+		"format": "\uf11c {}",
+		"min-length": 5,
+		"tooltip": false
+	},
+
+	"memory": {
+		"interval": 5,
+		"format": "\uf538 {}%", // Icon: memory
+		"states": {
+			"warning": 70,
+			"critical": 90
+		}
+	},
+
+	"network": {
+		"interval": 5,
+		// TODO: format-icons
+		"format-wifi": "\uf1eb {essid} ({signalStrength}%)", // Icon: wifi
+		//"format-ethernet": " {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
+		"format-ethernet": "\uf796 {ifname}",
+		"format-disconnected": "\uf54c",
+		//"tooltip-format": "{ifname}: {ipaddr}",
+		"tooltip": false
+		//"on-click": "cmst"
+	},
+
+	"sway/mode": {
+		"format": "<span style=\"italic\">\uf31e {}</span>", // Icon: expand-arrows-alt
+		"tooltip": false
+	},
+
+	"sway/window": {
+		"format": "{}",
+		"max-length": 75,
+		"tooltip": false
+	},
+
+	"sway/workspaces": {
+		"all-outputs": false,
+		"disable-scroll": false,
+		"format": "{name}",
+		"format-icons": {
+			"1:www": "\uf0ac", // Icon: firefox-browser
+			"2:mail": "", // Icon: mail
+			"3:editor": "", // Icon: code
+			"4:terminals": "", // Icon: terminal
+			"5:portal": "", // Icon: terminal
+			"urgent": "",
+			"focused": "",
+			"default": ""
+		}
+	},
+
+	"pulseaudio": {
+		"scroll-step": 1,
+		"format": "{icon} {volume}%",
+		"format-bluetooth": "{icon} {volume}%",
+		"format-muted": "",
+		"format-icons": {
+			"headphones": "\uf025",
+			"handsfree": "\ue05d",
+			"headset": "\uf590",
+			"phone": "\uf095",
+			"portable": "\uf095",
+			"car": "\uf1b9",
+			"default": ["\uf027", "\uf028"]
+		},
+		"on-click": "pavucontrol"
+	},
+
+	"temperature": {
+		"critical-threshold": 90,
+		"interval": 5,
+		//"format": "{icon} {temperatureC}°C",
+		"format": "{icon} {temperatureC}°",
+		"format-icons": [
+			"\uf2cb", // Icon: temperature-empty
+			//"\uf2ca", // Icon: temperature-quarter
+			"\uf2c9", // Icon: temperature-half
+			//"\uf2c8", // Icon: temperature-three-quarters
+			"\uf2c7"  // Icon: temperature-full
+		],
+		"tooltip": false
+	},
+
+	"custom/alsa": {
+		"exec": "amixer get Master | sed -nre 's/.*\\[off\\].*/ muted/p; s/.*\\[(.*%)\\].*/ \\1/p'",
+		"on-click": "amixer set Master toggle; pkill -x -RTMIN+11 waybar",
+		"on-scroll-up": "amixer set Master 1+; pkill -x -RTMIN+11 waybar",
+		"on-scroll-down": "amixer set Master 1-; pkill -x -RTMIN+11 waybar",
+		"signal": 11,
+		"interval": 10,
+		"tooltip": false
+	},
+
+	"sndio": {
+		"format": " {}%"
+	},
+
 	"tray": {
-        // "icon-size": 21,
-        "spacing": 10
-    },
-	"custom/media": {
-        "format": "{icon} {}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    }
+		"icon-size": 21
+		//"spacing": 10
+	},
+
+	"custom/arrow1": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow2": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow3": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow4": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow5": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow6": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow7": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow8": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow9": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow10": {
+		"format": "",
+		"tooltip": false
+	}
 }
