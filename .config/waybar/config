@@ -39,9 +39,9 @@
 		"cpu",
 		"custom/arrow5",
 		"temperature",
-		"custom/arrow6",
-		"sway/language",
-		"custom/arrow7",
+		//"custom/arrow6",
+		//"sway/language",
+		//"custom/arrow7",
 		"custom/arrow8",
 		"tray",
 		"clock#date",
@@ -73,7 +73,7 @@
 
 	"clock#time": {
 		"interval": 10,
-		"format": "{:%H:%M}",
+		"format": "{:%I:%M %p}",
 		"tooltip": false
 	},
 

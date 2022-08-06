@@ -116,3 +116,6 @@ export EDITOR='vim'
 
 # Alias for mirrorlist upgrade
 alias mirrorlist-update="sudo reflector --age 12 -c US --sort rate --save /etc/pacman.d/mirrorlist"
+
+# Alias for backlight, depends on ddci and ddcutil
+alias set-backlight="ddcutil setvcp 10"

@@ -64,16 +64,13 @@
 @define-color critical #ff5555;
 @define-color mode #a89984;
 @define-color workspaces #282a36;
-@define-color workspacesfocused #6272a4;
-@define-color sound #c785ab;
-@define-color network #b16286;
-@define-color memory #89d69d;
-@define-color cpu #98971a;
-@define-color temp #b8bb26;
-@define-color layout #689d6a;
-@define-color battery #fabd2f;
-@define-color date #292a36;
-@define-color time #6272a4;
+@define-color workspacesfocused #bd93f9;
+@define-color fade0 #44475a;
+@define-color fade100 #555970;
+@define-color layout #44475a;
+@define-color battery #44475a;
+@define-color date #282a36;
+@define-color time #282a36;
 
 /* Reset all styles */
 * {
@@ -173,7 +170,9 @@ window > box {
 }
 
 #workspaces button.focused {
-	background: @workspacesfocused;
+	background: linear-gradient(0deg, #6272a4 0%, #8be9fd 100%);
+    color: @dark;
+    font-weight: bold;
 }
 
 /*#workspaces button.urgent {
@@ -186,41 +185,18 @@ window > box {
 	margin-left: 40px;
 }
 
+#network,
+#memory,
+#cpu,
+#temperature,
 #custom-alsa,
 #pulseaudio,
-#sndio {
-	background: @sound;
-	color: @dark;
-}
-
-#network {
-	background: @network;
+#sndio,
+#language,
+#battery,
+#layout {
+	background: linear-gradient(270deg, @fade0 0%, @fade100 100%);
 	color: @light;
-}
-
-#memory {
-	background: @memory;
-	color: @dark;
-}
-
-#cpu {
-	background: @cpu;
-	color: @light;
-}
-
-#temperature {
-	background: @temp;
-	color: @dark;
-}
-
-#language {
-	background: @layout;
-	color: @light;
-}
-
-#battery {
-	background: @battery;
-	color: @dark;
 }
 
 #tray {
@@ -243,50 +219,25 @@ window > box {
 
 #custom-arrow1 {
 	font-size: 16px;
-	color: @sound;
+	color: @fade100;
 	background: transparent;
 }
 
-#custom-arrow2 {
-	font-size: 16px;
-	color: @network;
-	background: @sound;
-}
-
-#custom-arrow3 {
-	font-size: 16px;
-	color: @memory;
-	background: @network;
-}
-
-#custom-arrow4 {
-	font-size: 16px;
-	color: @cpu;
-	background: @memory;
-}
-
-#custom-arrow5 {
-	font-size: 16px;
-	color: @temp;
-	background: @cpu;
-}
-
-#custom-arrow6 {
-	font-size: 16px;
-	color: @layout;
-	background: @temp;
-}
-
+#custom-arrow2, 
+#custom-arrow3,
+#custom-arrow4,
+#custom-arrow5,
+#custom-arrow6,
 #custom-arrow7 {
 	font-size: 16px;
-	color: @battery;
-	background: @layout;
+	color: @fade100;
+	background: @fade0;
 }
 
 #custom-arrow8 {
 	font-size: 16px;
 	color: @date;
-	background: @battery;
+	background: @fade0;
 }
 
 #custom-arrow9 {
