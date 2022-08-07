@@ -268,3 +268,10 @@ output 'HDMI-A-1' mode 2560x1440@143.981Hz
 # Network TUI launch
 bindsym $mod+n exec --no-startup-id alacritty -t nm_tui_win -e "nmtui"
 for_window [title="nm_tui_win"] floating enable
+
+# Brightness control
+#
+# make sure to add user to video group
+# usermod -aG video walker
+bindsym XF86Calculator exec light -U 2
+bindsym XF86Tools exec light -A 2
