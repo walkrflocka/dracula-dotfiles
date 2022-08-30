@@ -215,9 +215,9 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # Screenshot
-bindsym Control+F12 exec --no-startup-id slurp | grim -g - $USER/Pictures/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png') 
-bindsym Shift+F12   exec --no-startup-id grim $USER/Pictures/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png') 
-bindsym F12 exec --no-startup-id grim -g "$(slurp -d)" - | wl-copy
+bindsym Control+Print exec --no-startup-id slurp | grim -g - $USER/Pictures/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png') 
+bindsym Shift+Print   exec --no-startup-id grim $USER/Pictures/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png') 
+bindsym Print exec --no-startup-id grim -g "$(slurp -d)" - | wl-copy
 
 # fuckin uuuuuuuuhhhhh session Bock
 bindsym $mod+Control+l exec --no-startup-id ~/.config/swaylock/swaylock.sh
@@ -254,7 +254,7 @@ exec_always {
 }
 
 # Output properly handled
-# output 'HDMI-A-1' mode 2560x1440@143.981Hz
+output 'HDMI-A-1' mode 2560x1440@143.981Hz
 
 # Network TUI launch
 bindsym $mod+n exec --no-startup-id alacritty -t nm_tui_win -e "nmtui"
