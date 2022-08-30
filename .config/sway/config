@@ -272,6 +272,8 @@ input type:touchpad {
 }
 
 # Brightness control
-bindsym XF86MonBrightnessUp exec light -A 2
-bindsym XF86MonBrightnessDown exec light -U 2
-
+#
+# make sure to add user to video group
+# usermod -aG video walker
+bindsym XF86Calculator exec light -U 2
+bindsym XF86Tools exec light -A 2

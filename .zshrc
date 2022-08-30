@@ -119,3 +119,6 @@ alias mirrorlist-update="sudo reflector --age 12 -c US --sort rate --save /etc/p
 
 # Alias for backlight, depends on ddci and ddcutil
 alias set-backlight="ddcutil setvcp 10"
+
+# kobo batch alias, call on folder
+alias kobo-libra-batch="kcc-c2e -mq -r 1 -o EPUB --customwidth=1264 --customheight=1680"
