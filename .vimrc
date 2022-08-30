@@ -6,19 +6,10 @@ call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'valloric/youcompleteme'
+Plug 'dracula/vim'
 
 call plug#end()
 " VimPlug section end
-
- packadd! dracula
-syntax enable
-if has('gui_running')
-    " GUI colors
-    colorscheme dracula
-else
-    " Non-GUI (terminal) colors
-    colorscheme default
-endif
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
