@@ -1,0 +1,5 @@
+[user]
+	email = walker.smith@protonmail.com
+	name = Walker Smith
+[credential]
+	helper = /usr/lib/git-core/git-credential-libsecret
