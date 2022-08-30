@@ -39,8 +39,8 @@
 		"cpu",
 		"custom/arrow5",
 		"temperature",
-		//"custom/arrow6",
-		//"sway/language",
+	    "custom/arrow6",
+		"battery",
 		//"custom/arrow7",
 		"custom/arrow8",
 		"tray",
@@ -59,14 +59,14 @@
 			"warning": 30,
 			"critical": 15
 		},
-		"format": " {capacity}%", // Icon: bolt
+		"format": "\uf0e7 {capacity}%", // Icon: bolt
 		"format-discharging": "{icon} {capacity}%",
 		"format-icons": [
-			"\uf240", // Icon: battery-full
-			"\uf241", // Icon: battery-three-quarters
-			"\uf242", // Icon: battery-half
+			"\uf244", // Icon: battery-empty
 			"\uf243", // Icon: battery-quarter
-			"\uf244"  // Icon: battery-empty
+			"\uf242", // Icon: battery-half
+			"\uf241", // Icon: battery-three-quarters
+			"\uf240"  // Icon: battery-full
 		],
 		"tooltip": false
 	},

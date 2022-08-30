@@ -166,10 +166,10 @@ colors:
     red: '#ff5555'
     green: '#50fa7b'
     yellow: '#f1fa8c'
-    blue: '#caa9fa'
+    blue: '#6272a4'
     magenta: '#ff79c6'
     cyan: '#8be9fd'
-    white: '#bfbfbf'
+    white: '#eaead9'
 
   # Bright colors
   bright:
@@ -177,8 +177,8 @@ colors:
     red: '#ff6e67'
     green: '#5af78e'
     yellow: '#f4f99d'
-    blue: '#caa9fa'
+    blue: '#6272a4'
     magenta: '#ff92d0'
     cyan: '#9aedfe'
-    white: '#e6e6e6'
+    white: '#f8f8f2'
 theme: Dracula

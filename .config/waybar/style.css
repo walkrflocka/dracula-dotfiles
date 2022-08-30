@@ -183,6 +183,8 @@ window > box {
 #window {
 	margin-right: 40px;
 	margin-left: 40px;
+    color: @dark;
+    font-weight: bold;
 }
 
 #network,
