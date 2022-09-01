@@ -271,6 +271,11 @@ input type:touchpad {
     pointer_accel 0.1 
 }
 
+# Keyboard tweaks
+input type:keyboard {
+    xkb_options ctrl:nocaps
+}
+
 # Brightness control
 #
 # make sure to add user to video group
