@@ -273,7 +273,7 @@ input type:touchpad {
 
 # Keyboard tweaks
 input type:keyboard {
-    xkb_options ctrl:escape
+    xkb_options caps:escape
 }
 
 # Brightness control

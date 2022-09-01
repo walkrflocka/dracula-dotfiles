@@ -8,6 +8,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'valloric/youcompleteme'
 Plug 'dracula/vim'
 Plug 'lervag/vimtex'
+Plug 'raimondi/delimitmate'
+Plug 'tpope/vim-commentary'
 
 call plug#end()
 " VimPlug section end
