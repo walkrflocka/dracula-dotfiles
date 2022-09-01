@@ -7,6 +7,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'valloric/youcompleteme'
 Plug 'dracula/vim'
+Plug 'lervag/vimtex'
 
 call plug#end()
 " VimPlug section end
